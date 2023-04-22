@@ -12,13 +12,13 @@
         <img src="img/mosque.jpg" alt="mosque" class="mosque">
         <header>
             <a href="#" class="logo">Ramadan</a>
-            <div class="toggle"></div>
-            <ul class="navigation">
-                <li><a class = 'active' href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Calendar</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
+            <div class="toggle active"></div>
+            <ul class="navigation active">
+                <li><a style='--i:1' class = 'active' href="#">Home</a></li>
+                <li><a style='--i:2' href="#">About</a></li>
+                <li><a style='--i:3' href="#">Calendar</a></li>
+                <li><a style='--i:4' href="#">Blog</a></li>
+                <li><a style='--i:5' href="#">Contact</a></li>
             </ul>
         </header>
         <div class="content">
@@ -30,11 +30,19 @@
         </div>
         <div class="sci">
             <ul>
-                <li><a href=""><img src="img/facebook.png" alt="facebook"></a></li>
-                <li><a href=""><img src="img/twitter.png" alt="twitter"></a></li>
-                <li><a href=""><img src="img/instagram.png" alt="instagram"></a></li>
+                <li><a style = "--i:1" href="#"><img src="img/facebook.png" alt="facebook"></a></li>
+                <li><a style = "--i:2" href="#"><img src="img/twitter.png" alt="twitter"></a></li>
+                <li><a style = "--i:3" href="#"><img src="img/instagram.png" alt="instagram"></a></li>
             </ul>
         </div>
     </section>
+    <script>
+        const menuToggle = document.querySelector('.toggle')
+        const navigation = document.querySelector('.navigation')
+        menuToggle.onclick = function() {
+            menuToggle.classList.toggle('active')
+            navigation.classList.toggle('active')
+        }
+    </script>
 </body>
 </html>

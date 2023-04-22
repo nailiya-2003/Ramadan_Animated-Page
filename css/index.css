@@ -32,6 +32,19 @@ header .logo {
     font-size: 2em;
     text-decoration: none;
     font-weight: 800;
+    opacity: 0;
+    animation: slide_left 0.5s linear forwards;
+    animation-delay: 0.2s;
+}
+@keyframes slide_left {
+    0% {
+        transform: translateX(-100px);
+        opacity:0
+    }
+    100% {
+        transform: translateX(0px);
+        opacity:1
+    }
 }
 header ul {
     position: relative;
@@ -40,8 +53,12 @@ header ul {
 header ul li {
     list-style: none;
     display: inline-block;
+    opacity: 0;
+    animation: slide_top 0.5s linear forwards;
+    animation-delay: 0.2s;
 }
 header ul li a {
+    display: inline-block;
     text-decoration: none;
     color:#0169b2;
     margin-left: 10px;
@@ -50,7 +67,19 @@ header ul li a {
     user-select: none;
     font-size: 1.1em;
     font-weight: 600;
-    transition: 0.2s ease;
+    transition: 0.2s ease; 
+    animation: slide_top 0.5s linear forwards;
+    animation-delay: calc(0.2s*var(--i));  
+}
+@keyframes slide_top {
+    0% {
+        transform: translateY(100px);
+        opacity:0
+    }
+    100% {
+        transform: translateY(0px);
+        opacity:1
+    }
 }
 header ul li a.active,header ul li a:hover {
     background-color: #0169b2;
@@ -70,10 +99,36 @@ header ul li a.active,header ul li a:hover {
     margin-bottom: 10px;
     line-height: 1.2em;
     font-weight: 700;
+    opacity: 0;
+    animation: slide_right 0.5s linear forwards;
+    animation-delay: 0.5s;
+}
+@keyframes slide_right {
+    0% {
+        transform: translateX(100px);
+        opacity:0
+    }
+    100% {
+        transform: translateX(0px);
+        opacity:1
+    }
 }
 .content .textBox p {
     font-size: 1.2em;
     color: #333;
+    opacity: 0;
+    animation: slide_left 0.8s linear forwards;
+    animation-delay: 0.2s;
+}
+@keyframes slide_left {
+    0% {
+        transform: translateX(-100px);
+        opacity:0
+    }
+    100% {
+        transform: translateX(0px);
+        opacity:1
+    }
 }
 .content .textBox a {
     display: inline-block;
@@ -86,6 +141,18 @@ header ul li a.active,header ul li a:hover {
     border-radius: 40px;
     font-weight: 700;
     letter-spacing: 1px;
+    animation: slide_top 0.5s linear forwards;
+    animation-delay: calc(0.2s*var(--i)); 
+}
+@keyframes slide_top {
+    0% {
+        transform: translateY(100px);
+        opacity:0
+    }
+    100% {
+        transform: translateY(0px);
+        opacity:1
+    }
 }
 .sci {
     position: absolute;
@@ -114,7 +181,20 @@ header ul li a.active,header ul li a:hover {
     align-items: center;
     transition: 0.3s ease-in-out;
     border-radius: 50%;
+    opacity: 0;
+    animation: slide_right 0.5s linear forwards;
+    animation-delay: calc(0.2s * var(--i));
 } 
+@keyframes slide_right {
+    0% {
+        transform: translateX(100px);
+        opacity:0
+    }
+    100% {
+        transform: translateX(0px);
+        opacity:1
+    }
+}
 .sci li img {
     filter: invert(1);
     transform: scale(0.5);
@@ -129,6 +209,17 @@ header ul li a.active,header ul li a:hover {
     bottom: 0;
     right: 0;
     max-width: 700px;
+    opacity: 0;
+    animation: fade_in 2s linear forwards;
+    animation-delay: 0.2s;
+}
+@keyframes fade_in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 @media (max-width:991px) {
     section {
@@ -139,6 +230,25 @@ header ul li a.active,header ul li a:hover {
     }
     .navigation {
         display: none;
+    }
+    .navigation.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+    }
+    .navigation li {
+        margin: 10px 0;
+    }
+    .navigation li a {
+        margin-left: 0;
+        font-size: 1.5em;
     }
     .toggle {
         position: fixed;
@@ -153,5 +263,16 @@ header ul li a.active,header ul li a:hover {
         z-index: 1000;
         cursor: pointer;
         border-radius: 2px;
+    }
+    .mosque {
+        max-width: 400px;
+    }
+    .content .textBox h2 {
+        font-size: 2.5em;
+    }
+}
+@media (max-width:600px) {
+    .mosque {
+        opacity: 0.6 !important;
     }
 }
